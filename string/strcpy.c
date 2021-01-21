@@ -10,3 +10,9 @@ char *strcpy(char *dest, const char *src)
 
   return dest;
 }
+
+
+void strcpy( char* Dest, const char* Src )
+{
+　 while( (*Dest++ = *Src++) != ‘\0’ );
+}

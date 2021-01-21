@@ -1,6 +1,27 @@
-int strlen(const char *str) {
-    int countStr = 0;
-    while (*(str+countStr)!='\0')
-            countStr++;
-    return countStr;
+
+int strlen(char *s) {
+    int size = 0;
+
+    while(*s!='\0') { 
+        size++;
+        s++;
+    }
+
+    return size;
+}
+
+
+int strlen(const char* str )
+{
+　assert( str!= NULL ); 
+
+　int len = 0;
+
+　while( (*str++) != '\0' )
+　{
+　　len++;
+　}
+
+　return len;
+
 }

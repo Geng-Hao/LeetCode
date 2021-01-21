@@ -15,6 +15,16 @@ void reverseString(char* s, int sSize){
 
 }
 
+void reverse(char *str){
+    int i,j;
+    char c;
+    for (i = 0, j = strlen(str)-1;i<j;i++,j--){
+        c = str[i];
+        str[i] = str[j];
+        str[j] = c;
+    }
+}
+
 
 
 class Solution {
