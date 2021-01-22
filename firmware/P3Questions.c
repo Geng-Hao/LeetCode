@@ -7,13 +7,12 @@ Q1:給一個int a[20]已排序的陣列，
 
 
 
-void Show(int *x, int size){
-    int *nextPtr = x;
-    for (int i = 0; i < size; i++){
+void Q1(int *a){
+    int *nextPtr = a;
+    for (int i = 0; i <=500; i++){
      
         if (i == *nextPtr){
             nextPtr++;
-            continue;
         }else{
             printf("%d, ",i);
         }
@@ -29,15 +28,14 @@ Q2:給一個int a[20]已排序的陣列，請寫一個function(a, size, b)能依
 　...
 */
 
-void function(int *a, int size, int b)
+void Q2(int *a, int b)
 {
     int *ptr = a;
-    int i;
 
     while (*ptr < b * 100)
         ptr++;
 
-    if (i=b*100; i<(b+1)*100; i++) {
+    for (int i=b*100; i<(b+1)*100; i++) {
         if (*ptr == i)
 	    ptr++;
 	else
@@ -62,7 +60,7 @@ unsigned int ListHead = 0;
 ListArray[Entry1].NextPtr = ListArray[Entry2]
 條件二
 ListArray[Entry2].DataH << 16 + ListArray[Entry2].DataL > ListArray[Entry1].DataH << 16 + ListArray[Entry1].DataL
-也就是說第一個 index 中的 NextPtr 會只到另一個 index 中的起始位址
+也就是說第一個 index 中的 NextPtr 會指到另一個 index 中的起始位址
 再來是另一個 index 中的起始位址的資料內容大小一定大於原起始資料的大小
 
 請寫一個function(unsigned int DATA_A, unsigned int DATA_B)，
@@ -78,21 +76,26 @@ void Q3(unsigned int DATA_A, unsigned int DATA_B)
     int next_entry = NULL;
 
     while (ListArray[found_entry].NextPtr != NULL) {
+        
         if (ListArray[found_entry].DataH == DATA_A && ListArray[found_entry].DataL == DATA_B) {
+	    
 	    if (pre_entry == NULL)
 	        printf("pre_entry = NULL, found_entry = ListHead\n");
             else
 	        printf("pre_entry = %d, found_entry = %d", pre_entry, found_entry);
-	    printf("found it\n");
+	    
 
 	    next_entry = ListArray[found_entry].NextPtr;
-	    if (ListArray[next_entry].DataH << 16 + ListArray[next_entry].DataL >
-	        DATA_A << 16 + DATA_B)
+	    
+	    if (ListArray[next_entry].DataH << 16 + ListArray[next_entry].DataL > DATA_A << 16 + DATA_B)
 		break;
 	}
 
-	pre_entry = found_entry;
+        
+	pre_entry = found_entry; 
 	found_entry = ListArray[found_entry].NextPtr;
     }
+    
+    printf("no found.\n");
 
 }
